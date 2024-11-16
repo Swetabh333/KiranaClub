@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/Swetabh333/KiranaClub/app/models"
@@ -22,10 +23,15 @@ type JobRequest struct {
 // fucntion for creating a job
 func SubmitJobHandler(c *gin.Context, db *gorm.DB) {
 	var req JobRequest
-	if err := c.ShouldBindJSON(&req); err != nil || req.Count != len(req.Visits) {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
-		})
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request payload"})
+		return
+	}
+
+	// Validate request payload
+	if req.Count != len(req.Visits) {
+		err := fmt.Sprintf("Count does not match the number of visits count = %d and len = %d", req.Count, len(req.Visits))
+		c.JSON(http.StatusBadRequest, gin.H{"error": err})
 		return
 	}
 	jobID := uuid.NewString()
