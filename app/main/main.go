@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/Swetabh333/KiranaClub/app/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -11,8 +12,8 @@ import (
 func main() {
 	db, err := gorm.Open(postgres.Open(os.Getenv("DSN_STRING")), &gorm.Config{})
 	if err != nil {
-		log.Fatalf("Failed to connect to database ", err)
+		log.Fatalf("Failed to connect to database %v", err)
 
 	}
-	log.Println("Connected")
+	db.AutoMigrate(&models.Job{}, &models.Visit{}, &models.Image{})
 }
