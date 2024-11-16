@@ -30,6 +30,7 @@ func main() {
 	log.Println("Loaded")
 
 	//Initializing Gin Router
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
 	router.POST("/api/submit", func(c *gin.Context) {
