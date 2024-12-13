@@ -32,11 +32,11 @@ func main() {
 	//Initializing Gin Router
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
-
+	//Implementing the submit endpoint
 	router.POST("/api/submit", func(c *gin.Context) {
 		handlers.SubmitJobHandler(c, db)
 	})
-
+	//Implementing the status endpoint
 	router.GET("/api/status", func(c *gin.Context) {
 		handlers.GetJobStatusHandler(c, db)
 	})

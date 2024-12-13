@@ -1,4 +1,5 @@
-version: '3.9'
+#docker compose for setting up the project with postgres set up as well
+version: "3.9"
 
 services:
   app:
@@ -27,3 +28,4 @@ services:
 
 volumes:
   postgres_data:
+

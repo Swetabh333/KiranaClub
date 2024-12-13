@@ -2,7 +2,7 @@
 
 This project is created as a part of selection process for KiranaClub. It implements a program for doctors and receptionists and helps perform the following tasks:
 
-- Submit  a job for image processing.
+- Submit a job for image processing.
 
 - Get status of any jobs submitted.
 
@@ -31,7 +31,6 @@ The project exposes the following endponts :
   - **Method:** GET
   - **Description:** Checks and returns the status of a job taking jobid as a query param.
 
-
 ## Setting up the project Locally
 
 To set up the project paste the follwing commands in your terminal:
@@ -49,6 +48,7 @@ Next you have to set the environment for the project.In your root directory in y
 ```bash
 export DSN_STRING="<your_postgres_connection_string>"
 ```
+
 Now you'll have to build the project with the following command in the root directory
 
 ```bash
@@ -80,5 +80,4 @@ then run the docker build command
 docker compose up --build
 ```
 
-**Your backend is now listening at port `8080`**.
-
+**Your backend is now listening at port number `8080`**.

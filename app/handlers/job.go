@@ -11,6 +11,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// structure for job request payload
 type JobRequest struct {
 	Count  int `json:"count"`
 	Visits []struct {

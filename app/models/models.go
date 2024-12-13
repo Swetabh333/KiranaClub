@@ -9,6 +9,7 @@ import (
 
 type JobStatus string
 
+// all types of job statuses
 const (
 	JobOngoing   JobStatus = "ongoing"
 	JobCompleted JobStatus = "completed"

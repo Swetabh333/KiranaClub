@@ -11,7 +11,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// Fucntion for calculating perimeter and simulating gpu processing
+// Function for calculating perimeter and simulating gpu processing
 func ProcessJob(jobID string, db *gorm.DB) {
 	var results []models.ImageResult
 	db.Where("job_id = ?", jobID).Find(&results)
